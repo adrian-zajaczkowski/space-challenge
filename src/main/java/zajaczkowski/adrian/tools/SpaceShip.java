@@ -1,4 +1,4 @@
-package zajaczkowski.adrian;
+package zajaczkowski.adrian.tools;
 
 public interface SpaceShip {
 

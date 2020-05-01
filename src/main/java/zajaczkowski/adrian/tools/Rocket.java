@@ -1,6 +1,13 @@
-package zajaczkowski.adrian;
+package zajaczkowski.adrian.tools;
 
 public class Rocket implements SpaceShip {
+
+    private String name;
+    private int weight;
+    private int maxWeight;
+    private int cargoLimit;
+    private int cargoCarried;
+
 
     @Override
     public boolean launch() {

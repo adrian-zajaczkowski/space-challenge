@@ -2,7 +2,13 @@ package zajaczkowski.adrian.tools;
 
 public class U1 extends Rocket {
 
-
+    public U1() {
+        name = "U1";
+        cost = 100;
+        weight = 10_000_000;
+        maxWeight = 18_000_000;
+        cargoLimit = maxWeight - weight;
+    }
 
     @Override
     public boolean launch() {

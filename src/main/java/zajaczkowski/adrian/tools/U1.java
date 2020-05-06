@@ -12,22 +12,22 @@ public class U1 extends Rocket {
 
     @Override
     public boolean launch() {
-        boolean result = false;
+        boolean result = true;
         double random = Math.random();
-        double chanceOfLaunch = 0.05 * (cargoCarried/cargoLimit);
-        if (random <= chanceOfLaunch){
-            result = true;
+        double chanceOfLaunchExplosion = 0.05 * ( (double) cargoCarried/ (double) cargoLimit);
+        if (random <= chanceOfLaunchExplosion){
+            result = false;
         }
         return result;
     }
 
     @Override
     public boolean land() {
-        boolean result = false;
+        boolean result = true;
         double random = Math.random();
-        double chanceOfLand = 0.01 * (cargoCarried/cargoLimit);
-        if (random <= chanceOfLand){
-            result = true;
+        double chanceOfLandExplosion = 0.01 * ( (double) cargoCarried/ (double) cargoLimit);
+        if (random <= chanceOfLandExplosion){
+            result = false;
         }
         return result;
     }

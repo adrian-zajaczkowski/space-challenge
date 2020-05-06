@@ -24,8 +24,7 @@ public class App {
         fleetU1.addAll(simulation.loadU1(itemsForPhase1));
         fleetU1.addAll(simulation.loadU1(itemsForPhase2));
 
-        int i = simulation.runSimulation(fleetU1);
-        System.out.println(i);
+        System.out.println(simulation.runSimulation(fleetU1));
 
 
 

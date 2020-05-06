@@ -20,10 +20,10 @@ public class Simulation {
     public int runSimulation(ArrayList<Rocket> rockets) {
         int budget = 0;
         for (Rocket rocket : rockets) {
-            budget =+rocket.getCost();
+            budget += rocket.getCost();
 
             while (!rocket.launch() || !rocket.land()) {
-                budget =+rocket.getCost();
+                budget += rocket.getCost();
             }
         }
 

@@ -2,12 +2,12 @@ package zajaczkowski.adrian.tools;
 
 public class Rocket implements SpaceShip {
 
-    public String name;
-    public int cost;
-    public int weight;
-    public int maxWeight;
-    public int cargoLimit;
-    public int cargoCarried;
+    String name;
+    int cost;
+    int weight;
+    int maxWeight;
+    int cargoLimit;
+    int cargoCarried;
 
 
     @Override
@@ -38,51 +38,19 @@ public class Rocket implements SpaceShip {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getMaxWeight() {
-        return maxWeight;
-    }
-
-    public void setMaxWeight(int maxWeight) {
-        this.maxWeight = maxWeight;
-    }
 
     public int getCargoLimit() {
         return cargoLimit;
     }
 
-    public void setCargoLimit(int cargoLimit) {
-        this.cargoLimit = cargoLimit;
-    }
 
     public int getCargoCarried() {
         return cargoCarried;
     }
 
-    public void setCargoCarried(int cargoCarried) {
-        this.cargoCarried = cargoCarried;
-    }
 }

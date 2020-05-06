@@ -38,6 +38,9 @@ public class Rocket implements SpaceShip {
         }
     }
 
+    public String getName() {
+        return name;
+    }
 
     public int getCost() {
         return cost;

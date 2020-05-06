@@ -20,19 +20,20 @@ public class App {
         ArrayList<Item> itemsForPhase1 = simulation.loadItems(phase1Path);
         ArrayList<Item> itemsForPhase2 = simulation.loadItems(phase2Path);
 
+
+        System.out.println("Loading U1 fleet...");
         ArrayList<Rocket> fleetU1 = new ArrayList<>();
         fleetU1.addAll(simulation.loadU1(itemsForPhase1));
         fleetU1.addAll(simulation.loadU1(itemsForPhase2));
 
-        System.out.println(simulation.runSimulation(fleetU1));
+        System.out.println("Total budget for U1 fleet is: " + simulation.runSimulation(fleetU1) + "$");
 
-
-
+        System.out.println("Loading U2 fleet...");
         ArrayList<Rocket> fleetU2 = new ArrayList<>();
         fleetU2.addAll(simulation.loadU2(itemsForPhase1));
         fleetU2.addAll(simulation.loadU2(itemsForPhase2));
 
-        System.out.println(simulation.runSimulation(fleetU2));
+        System.out.println("Total budget for U2 fleet is: " + simulation.runSimulation(fleetU2) + "$");
     }
 
 }

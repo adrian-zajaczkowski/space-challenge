@@ -23,7 +23,13 @@ public class Simulation {
 
             while (!rocket.launch() || !rocket.land()) {
                 budget += rocket.getCost();
+                if (!rocket.launch()){
+                    System.out.println("Rocket "+ rocket.getName() +" crashed when launching. Try again.");
+                }else if (!rocket.land()){
+                    System.out.println("Rocket "+ rocket.getName() +" crashed when landing. Try again.");
+                }
             }
+            System.out.println("Rocket " + rocket.getName() + " launched and landed correctly.");
         }
 
 
@@ -87,8 +93,7 @@ public class Simulation {
 
     private Item createItemFromStringFromFile(String file) {
         String[] splitItem = file.split(DELIMITER);
-        Item item = new Item(splitItem[0], Integer.valueOf(splitItem[1]));
-        return item;
+        return new Item(splitItem[0], Integer.valueOf(splitItem[1]));
     }
 
 }

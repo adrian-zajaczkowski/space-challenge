@@ -1,7 +1,11 @@
 package zajaczkowski.adrian.tools;
 
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 
 class RocketTest {
+
+    private Rocket testObj = new Rocket();
+
 
 }

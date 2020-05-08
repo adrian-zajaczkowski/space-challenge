@@ -23,10 +23,10 @@ public class Simulation {
 
             while (!rocket.launch() || !rocket.land()) {
                 budget += rocket.getCost();
-                if (!rocket.launch()){
-                    System.out.println("Rocket "+ rocket.getName() +" crashed when launching. Try again.");
-                }else if (!rocket.land()){
-                    System.out.println("Rocket "+ rocket.getName() +" crashed when landing. Try again.");
+                if (!rocket.launch()) {
+                    System.out.println("Rocket " + rocket.getName() + " crashed when launching. Try again.");
+                } else if (!rocket.land()) {
+                    System.out.println("Rocket " + rocket.getName() + " crashed when landing. Try again.");
                 }
             }
             System.out.println("Rocket " + rocket.getName() + " launched and landed correctly.");
@@ -39,46 +39,34 @@ public class Simulation {
     public ArrayList<U1> loadU1(ArrayList<Item> items) {
         ArrayList<U1> fleetU1 = new ArrayList<>();
 
-        int itemsSize = items.size();
-        int counter = 0;
+        U1 rocket = new U1();
 
-        if (itemsSize > 0) {
-            while (counter < itemsSize - 1) {
-                U1 rocket = new U1();
-                Item item = items.get(counter);
+        for (Item item : items) {
 
-                while (rocket.getCargoLimit() > item.getWeight() + rocket.getCargoCarried()) {
-                    rocket.carry(item);
-
-                }
-                counter += 1;
+            while (!rocket.canCarry(item)) {
                 fleetU1.add(rocket);
+                rocket = new U1();
             }
+            rocket.carry(item);
         }
-
+        fleetU1.add(rocket);
         return fleetU1;
     }
 
+
     public ArrayList<U2> loadU2(ArrayList<Item> items) {
         ArrayList<U2> fleetU2 = new ArrayList<>();
+        U2 rocket = new U2();
 
-        int itemsSize = items.size();
-        int counter = 0;
+        for (Item item : items) {
 
-        if (itemsSize > 0) {
-            while (counter < itemsSize - 1) {
-                U2 rocket = new U2();
-                Item item = items.get(counter);
-
-                while (rocket.getCargoLimit() > item.getWeight() + rocket.getCargoCarried()) {
-                    rocket.carry(item);
-
-                }
-                counter += 1;
+            while (!rocket.canCarry(item)) {
                 fleetU2.add(rocket);
+                rocket = new U2();
             }
+            rocket.carry(item);
         }
-
+        fleetU2.add(rocket);
         return fleetU2;
     }
 
@@ -91,7 +79,10 @@ public class Simulation {
         return result;
     }
 
-    private Item createItemFromStringFromFile(String file) {
+    public Item createItemFromStringFromFile(String file) throws IOException {
+        if (!file.contains(DELIMITER)) {
+            throw new IOException();
+        }
         String[] splitItem = file.split(DELIMITER);
         return new Item(splitItem[0], Integer.valueOf(splitItem[1]));
     }

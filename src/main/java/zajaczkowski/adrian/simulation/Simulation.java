@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Simulation {
 
-    public static final String DELIMITER = "=";
+    private static final String DELIMITER = "=";
 
 
     public int runSimulation(ArrayList<Rocket> rockets) {

@@ -2,6 +2,7 @@ package zajaczkowski.adrian.simulation;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import zajaczkowski.adrian.exceptions.TooBigItemExceptions;
 import zajaczkowski.adrian.tools.Item;
 import zajaczkowski.adrian.tools.U1;
 import zajaczkowski.adrian.tools.U2;
@@ -18,6 +19,26 @@ class SimulationTest {
     private Simulation testObj = new Simulation();
 
 
+
+    @Test
+    void shouldReturnExceptionsAndNotLoadU1Rockets() {
+        //given
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("trolololo",12000));
+
+        //then
+        assertThatThrownBy(()->testObj.loadU1(items)).isInstanceOf(TooBigItemExceptions.class);
+    }
+
+    @Test
+    void shouldReturnExceptionsAndNotLoadU2Rockets() {
+        //given
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("trolololo",12000));
+
+        //then
+        assertThatThrownBy(()->testObj.loadU2(items)).isInstanceOf(TooBigItemExceptions.class);
+    }
 
     @Test
     void shouldNotLoadU1Rockets() {

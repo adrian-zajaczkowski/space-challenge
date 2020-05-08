@@ -43,7 +43,7 @@ public class Simulation {
         U1 rocket = new U1();
 
         for (Item item : items) {
-
+            if (item.getWeight()>11000) throw new TooBigItemExceptions();
             while (!rocket.canCarry(item)) {
                 fleetU1.add(rocket);
                 rocket = new U1();
@@ -59,7 +59,7 @@ public class Simulation {
         ArrayList<U2> fleetU2 = new ArrayList<>();
         U2 rocket = new U2();
 
-        try {
+
 
 
             for (Item item : items) {
@@ -71,9 +71,7 @@ public class Simulation {
                 rocket.carry(item);
             }
 
-        } catch (TooBigItemExceptions tooBigItemExceptions) {
-            tooBigItemExceptions.getMessage();
-        }
+
         fleetU2.add(rocket);
         return fleetU2;
     }

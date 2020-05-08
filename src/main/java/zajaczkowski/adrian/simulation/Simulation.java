@@ -1,5 +1,6 @@
 package zajaczkowski.adrian.simulation;
 
+import zajaczkowski.adrian.exceptions.TooBigItemExceptions;
 import zajaczkowski.adrian.tools.Item;
 import zajaczkowski.adrian.tools.Rocket;
 import zajaczkowski.adrian.tools.U1;
@@ -58,13 +59,20 @@ public class Simulation {
         ArrayList<U2> fleetU2 = new ArrayList<>();
         U2 rocket = new U2();
 
-        for (Item item : items) {
+        try {
 
-            while (!rocket.canCarry(item)) {
-                fleetU2.add(rocket);
-                rocket = new U2();
+
+            for (Item item : items) {
+                if (item.getWeight()>11000) throw new TooBigItemExceptions();
+                while (!rocket.canCarry(item)) {
+                    fleetU2.add(rocket);
+                    rocket = new U2();
+                }
+                rocket.carry(item);
             }
-            rocket.carry(item);
+
+        } catch (TooBigItemExceptions tooBigItemExceptions) {
+            tooBigItemExceptions.getMessage();
         }
         fleetU2.add(rocket);
         return fleetU2;
